@@ -22,7 +22,7 @@ jobs:
       - run: npm i
       - run: npm run build
 
-      deploy:
+  deploy:
         needs: test-build
         runs-on: ubuntu-latest
 
@@ -32,7 +32,7 @@ jobs:
 
         steps:
           - name: Build app on VM
-          - uses: appleboy/ssh-action@master
+            uses: appleboy/ssh-action@master
             with:
               host: ${{ secrets.HOST }}
               username: ${{ secrets.USERNAME }}
